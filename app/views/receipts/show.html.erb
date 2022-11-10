@@ -1,0 +1,36 @@
+<%= render 'shared/navbar' %>
+<%= render 'shared/sidebar' %>
+<div class ="content-wrapper h-100">
+  <section class="content pt-5">
+    <div class="card card-solid">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12 col-sm-6 text-center d-flex align-items-center">
+            <div class="col-12">
+              <% if @receipt.img.url %>
+                <%= image_tag @receipt.img.url %>
+              <% else %>
+                <%= image_tag 'no_image.jpg' %>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6">
+            <h1 class="my-3"><span>金額</span>￥<%= @receipt.price %></h1>
+            <hr>
+            <h3 class="my-3"><span>利用店</span><%= @receipt.publisher %></h3>
+            <hr>
+            <h3 class="my-3"><span>用途</span><%= @receipt.usage %></h3>
+            <hr>
+            <h3 class="my-3"><span>利用日</span><%= @receipt.usage_date %></h3>
+            <hr>
+            <h3 class="my-3"><span>登録日</span><%= @receipt.created_at %></h3>
+          </div>
+        </div>
+        <div class="card-footer">
+          <%= link_to '削除', user_receipt_path(current_user,@receipt), class:"btn btn-danger px-5 mx-2 float-right", method: :delete %>
+          <%= link_to '編集', edit_user_receipt_path(current_user,@receipt), class:"btn btn-warning px-5 mx-2 float-right", method: :delete %>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

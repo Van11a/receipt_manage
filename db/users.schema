@@ -1,0 +1,9 @@
+create_table "users", force: :cascade do |t|
+  t.string   "login_id",         null: false, comment: "ログインID"
+  t.string   "password_digest",  null: false, comment: "パスワード"
+  t.string   "sei",              null: false, comment: "姓"
+  t.string   "mei",              null: false, comment: "名"
+  t.string   "sei_kana",         null: false, comment: "セイ"
+  t.string   "mei_kana",         null: false, comment: "メイ"
+  t.string   "email",            null: false, comment: "メールアドレス"
+end

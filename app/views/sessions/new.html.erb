@@ -1,0 +1,44 @@
+<body class="login-page" style="min-height: 496.797px;">
+  <div class="login-box">
+    <div class="login-logo">
+      <a href="/"><b>家計簿アプリ</a>
+    </div>
+
+    <div class="card">
+      <div class="card-body login-card-body">
+        <p class="login-box-msg">ログイン</p>
+        <%= form_for(:session, url: login_path) do |f| %>
+          <div class="input-group mb-3">
+            <%= f.text_field :login_id, class:"form-control", placeholder:"ログインID" %>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-user"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <%= f.password_field :password, class:"form-control", placeholder:"パスワード" %>
+            <div class="input-group-append">
+              <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-8">
+              <div class="icheck-primary">
+                <input type="checkbox" id="remember">
+                <label for="remember">
+                  ログイン情報を保存
+                </label>
+              </div>
+            </div>
+            <div class="col-4">
+              <%= f.submit "Log in", class:"btn btn-primary btn-block" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</body>

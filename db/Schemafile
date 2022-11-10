@@ -1,0 +1,2 @@
+require 'receipts.schema'
+require 'users.schema'

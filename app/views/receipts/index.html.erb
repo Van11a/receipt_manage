@@ -1,0 +1,45 @@
+<%= render 'shared/navbar' %>
+<%= render 'shared/sidebar' %>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper h-100">
+  <!-- Main content -->
+  <div class="content">
+    <div class="container-fluid">
+      <div class="col-12 clearfix py-4">
+        <div class="float-left test-box">
+          <span>支出</span>
+          <h1>￥<%= @receipt_total %></h1>
+        </div>
+        <div class="float-right test-box">
+          <%= link_to "レシート登録", new_user_receipt_path(@user), {class: "btn btn-info"} %>
+        </div>
+      </div>
+      <% if !@receipts.empty? %>
+        <div class="card">
+          <div class="card-body p-0">
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th>金額</th>
+                  <th>利用店</th>
+                  <th>日付</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @receipts.each do |receipt| %>
+                  <tr>
+                    <td><%= link_to user_receipt_path(@user,receipt) do %>￥<%= receipt.price %><% end %></td>
+                    <td><%= link_to receipt.publisher, user_receipt_path(@user,receipt) %></td>
+                    <td><%= link_to receipt.usage_date, user_receipt_path(@user,receipt) %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      <% end %>
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content -->
+</div>
+
